@@ -89,9 +89,7 @@
   ],
   "layer": [
     {
-      "mark": {
-        "type": "bar"
-      },
+      "mark": "area",
       "encoding": {
         "x": {
           "field": "date",

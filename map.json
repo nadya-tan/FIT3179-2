@@ -12,7 +12,7 @@
       "value": 2000,
       "bind": {
         "input": "range",
-        "min": 1966,
+        "min": 1967,
         "max": 2017,
         "step": 1,
         "name": "Year"
@@ -53,8 +53,31 @@
     }
   ],
   "width": 700,
-  "height": 700,
+  "height": 500,
   "layer": [
+    {
+      "data": {
+        "values": [{}]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "aliceblue"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "value": 700
+        },
+        "y": {
+          "value": 50
+        },
+        "y2": {
+          "value": 450
+        }
+      }
+    },
     {
       "data": {
         "url": "map/ne_110m_admin_0_countries.topojson",
@@ -88,7 +111,12 @@
           "condition": {
             "test": "isValid(datum.price)",
             "field": "price",
-            "type": "quantitative"
+            "type": "quantitative",
+            "scale": {
+              "type": "linear",
+              "domain": [-42.25, 65.19],
+              "range": ["#ffffff", "#450101"]
+            }
           },
           "value": "black"
         },
