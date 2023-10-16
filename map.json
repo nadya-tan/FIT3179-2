@@ -116,6 +116,9 @@
               "type": "linear",
               "domain": [-42.25, 65.19],
               "range": ["#ffffff", "#450101"]
+            },
+            "legend": {
+              "title": "Price (%)"
             }
           },
           "value": "black"

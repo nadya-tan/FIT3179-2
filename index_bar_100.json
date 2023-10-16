@@ -2,8 +2,19 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 500,
-  "data": {"url": "data/index_combined.json"},
+  "data": { "url": "data/index_combined.json" },
   "params": [
+    {
+      "name": "highlight",
+      "views": ["view_1"],
+      "select": {
+        "type": "point",
+        "on": "mouseover",
+        "fields": ["date"],
+        "nearest": true,
+        "clear": "mouseout"
+      }
+    },
     {
       "name": "country_selector",
       "value": "Australia",
@@ -74,10 +85,7 @@
       "value": "nominal",
       "bind": {
         "input": "radio",
-        "options": [
-          "nominal",
-          "real"
-        ],
+        "options": ["nominal", "real"],
         "name": "Type"
       }
     }
@@ -112,7 +120,37 @@
           "type": "nominal",
           "legend": {
             "title": "Type"
+          },
+          "scale": {
+            "range": ["#d6857e"]
           }
+        }
+      }
+    },
+    {
+      "name": "view_1",
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "price",
+          "type": "quantitative"
+        },
+        "shape": {
+          "value": "circle"
+        },
+        "size": {
+          "value": 150
+        },
+        "color": {
+          "value": "#b55b4a"
+        },
+        "opacity": {
+          "condition": { "param": "highlight", "empty": false, "value": 1 },
+          "value": 0
         },
         "tooltip": [
           {
@@ -131,12 +169,9 @@
     {
       "mark": {
         "type": "rule",
-        "color": "red",
+        "color": "black",
         "strokeWidth": 2,
-        "strokeDash": [
-          4,
-          2
-        ]
+        "strokeDash": [4, 2]
       },
       "encoding": {
         "y": {

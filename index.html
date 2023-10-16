@@ -1,78 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <script src="vega_lite_vis.js"></script>
     <style>
+      /* CSS to center-align the entire page */
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
 
-        /* CSS to center-align the entire page */
-        body {
-            text-align: center;
-            font-family: sans-serif;
-        }
+      /* CSS to center-align the title */
+      h1 {
+        text-align: center;
+      }
 
-        /* CSS to center-align the title */
-        h1 {
-            text-align: center;
-        }
+      /* CSS to center-align the chloropleth */
+      .centered-visualization {
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-top: 5px solid #aa332f;
+        padding: 1em;
+      }
 
-        /* CSS to center-align the chloropleth */
-        .centered-visualization {
-            display: inline-block;
-            text-align: center;
-        }
+      /* CSS to arrange visualizations side by side */
+      .visualization-container {
+        display: flex;
+        flex-direction: row; /* Arrange items horizontally */
+        align-items: center; /* Center-align items vertically */
+        justify-content: center; /* Center-align items horizontally */
+        margin-top: 2em;
+      }
 
-        /* CSS to arrange visualizations side by side */
-        .visualization-container {
-            display: flex;
-            flex-direction: row; /* Arrange items horizontally */
-            align-items: center; /* Center-align items vertically */
-            justify-content: center; /* Center-align items horizontally */
-        }
+      .visualization-container h2 {
+        margin-top: 0; /* Remove top margin from titles */
+      }
 
-        .visualization-container h2 {
-            margin-top: 0; /* Remove top margin from titles */
-        }
+      .visualization-container > div {
+        flex: 1; /* Each visualization takes equal space */
+        margin: 10px; /* Add spacing between visualizations */
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-top: 5px solid #aa332f;
+      }
 
-        .visualization-container > div {
-            flex: 1; /* Each visualization takes equal space */
-            margin: 10px; /* Add spacing between visualizations */
+      input[type="range"] {
+        margin-right: 1em;
+        margin-left: 1em;
+        appearance: none;
+        background: #aa332f;
+        border-radius: 30px;
+        height: 10px;
+
+        &::-webkit-slider-thumb {
+          appearance: none;
+          background: #dadada;
+          border-radius: 50%;
+          cursor: pointer;
+          height: 20px;
+          width: 20px;
+          border: 1px solid #aa332f;
         }
+      }
     </style>
     <title>Housing Prices Across the World</title>
-</head>
-<body>
-    <object data = "bank-for-international-settlements-bis-vector-logo.svg" width="200" height="100"></object>
+  </head>
+  <body>
+    <object
+      data="bank-for-international-settlements-bis-vector-logo.svg"
+      width="200"
+      height="100"
+    ></object>
     <h1>Housing Prices Across the World</h1>
-    
+
+    This visualisation shows how property prices have changed in different
+    countries over 1967-2017.
+    <br />
+    This data is taken from the Bank for International Settlements <br />
+    Heavily simplified, nominal prices refer to non-inflation-adjusted prices,
+    whereas real prices refer to inflation-adjusted prices.
+    <br />
+    <br />
+    <br />
     <div class="centered-visualization">
-        This visualisation shows how property prices have changed in different countries over 1967-2017.
-        <br> This data is taken from the Bank for International Settlements
-        <br> Heavily simplified, nominal prices refer to non-inflation-adjusted prices, whereas real prices refer to inflation-adjusted prices.
-        <h2>Nominal Global Property Price Changes</h2>
-        <div id="chloropleth"></div>
+      <h2>Nominal Global Property Price Changes</h2>
+      <div id="chloropleth"></div>
     </div>
-    
+
     <div class="visualization-container">
-        <div>
-            This visualisation shows the changes in 
-        </div>
-        <div>
-            <h2>Index Changes</h2>
-            <div id="index_bar"></div>
-        </div>
-        <div>
-            <h2>Year-on-Year Changes</h2>
-            <div id="year_line"></div>
-        </div>
-        <div>
-            Lorem ipsum
-        </div>
+      <div>This visualisation shows the changes in</div>
+      <div>
+        <h2>Index Changes</h2>
+        <div id="index_bar"></div>
+      </div>
+      <div>
+        <h2>Year-on-Year Changes</h2>
+        <div id="year_line"></div>
+      </div>
+      <div>Lorem ipsum</div>
     </div>
-</body>
+  </body>
 </html>
