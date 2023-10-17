@@ -130,7 +130,7 @@
           {
             "field": "price",
             "type": "quantitative",
-            "title": "Price"
+            "title": "% Change"
           }
         ]
       }
@@ -175,7 +175,7 @@
           {
             "field": "price",
             "type": "quantitative",
-            "title": "Price"
+            "title": "% Change"
           }
         ]
       }
